@@ -1,0 +1,17 @@
+{
+  "name": "smart-ads",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "watch": "npx tailwindcss -i ./src/style.css -o ./build/css/style.css --watch",
+    "build": "npx tailwindcss -i ./src/style.css -o ./build/css/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8"
+  }
+}
