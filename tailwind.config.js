@@ -27,6 +27,26 @@ module.exports = {
           900: "#1e3a8a",
           950: "#172554",
         },
+        success: {
+          light: "#d1fae5", // Light Success
+          DEFAULT: "#10b981", // Default Success (Green)
+          dark: "#065f46", // Dark Success
+        },
+        error: {
+          light: "#fee2e2", // Light Error
+          DEFAULT: "#ef4444", // Default Error (Red)
+          dark: "#991b1b", // Dark Error
+        },
+        warning: {
+          light: "#fef3c7", // Light Warning
+          DEFAULT: "#f59e0b", // Default Warning (Yellow)
+          dark: "#92400e", // Dark Warning
+        },
+        info: {
+          light: "#dbeafe", // Light Info
+          DEFAULT: "#3b82f6", // Default Info (Blue)
+          dark: "#1e3a8a", // Dark Info
+        },
         gray: {
           50: "#f9fafb",
           100: "#f3f4f6",
