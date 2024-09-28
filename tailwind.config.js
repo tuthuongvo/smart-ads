@@ -31,9 +31,9 @@ module.exports = {
           950: "#172554",
         },
         success: {
-          light: "#d1fae5", // Light Success
-          DEFAULT: "#10b981", // Default Success (Green)
-          dark: "#065f46", // Dark Success
+          light: "#DEF7EC", // Light Success
+          DEFAULT: "#057A55", // Default Success (Green)
+          dark: "#0E9F6E", // Dark Success
         },
         error: {
           light: "#fee2e2", // Light Error
