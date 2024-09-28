@@ -1,6 +1,5 @@
-/* components/typography.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Add any custom typography styles or Tailwind utility classes */
 .text-title {
   @apply text-3xl font-bold;
 }
