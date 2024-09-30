@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: ["./build/*.html"],
   theme: {
     screens: {
@@ -15,6 +16,7 @@ module.exports = {
     extend: {
       borderColor: {
         input: "#E5E7EB",
+        primary: "#E5E7EB",
       },
       colors: {
         primary: {
@@ -49,6 +51,18 @@ module.exports = {
           light: "#dbeafe", // Light Info
           DEFAULT: "#3b82f6", // Default Info (Blue)
           dark: "#1e3a8a", // Dark Info
+        },
+        blue: {
+          50: "#EBF5FF",
+          100: "#E1EFFE",
+          200: "#C3DDFD",
+          300: "#A4CAFE",
+          400: "#76A9FA",
+          500: "#3F83F8",
+          600: "#1C64F2",
+          700: "#1A56DB",
+          800: "#1E429F",
+          900: "#233876",
         },
         gray: {
           50: "#f9fafb",

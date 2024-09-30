@@ -1,13 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <div class="bg-emerald-500 w-52 h-52 rounded-full"></div>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draggable Dropdown with Checkboxes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    /> -->
+  </head>
+  <body class="p-5">
+    <div class="flex items-center">
+      <button
+        id="btnFilter"
+        class="flex h-10 justify-center items-center rounded-lg bg-gray-200 px-5 gap-2"
+        type="button"
+      >
+        Filter
+      </button>
+
+      <div
+        id="dropdownFilter"
+        class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
+      >
+        <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+          Category
+        </h6>
+        <ul id="sortable" class="space-y-2 text-sm">
+          <li class="flex items-center border-b border-gray-200">
+            <input id="item1" type="checkbox" class="mr-2" />
+            <label
+              for="item1"
+              class="text-sm font-medium text-gray-900 dark:text-gray-100"
+              >Completed (56)</label
+            >
+          </li>
+          <li class="flex items-center border-b border-gray-200">
+            <input id="item2" type="checkbox" class="mr-2" />
+            <label
+              for="item2"
+              class="text-sm font-medium text-gray-900 dark:text-gray-100"
+              >Cancelled (56)</label
+            >
+          </li>
+          <li class="flex items-center border-b border-gray-200">
+            <input id="item3" type="checkbox" class="mr-2" />
+            <label
+              for="item3"
+              class="text-sm font-medium text-gray-900 dark:text-gray-100"
+              >In Progress (56)</label
+            >
+          </li>
+          <li class="flex items-center border-b border-gray-200">
+            <input id="item4" type="checkbox" class="mr-2" />
+            <label
+              for="item4"
+              class="text-sm font-medium text-gray-900 dark:text-gray-100"
+              >In Review (97)</label
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#btnFilter").click(function () {
+          $("#dropdownFilter").toggleClass("hidden");
+        });
+
+        // Enable sortable functionality
+        $("#sortable").sortable({
+          items: "> li",
+          handle: "label",
+          placeholder: "bg-gray-200 h-8",
+        });
+
+        $("#sortable").disableSelection(); // Prevent text selection while dragging
+      });
+    </script>
+  </body>
 </html>

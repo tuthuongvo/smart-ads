@@ -5,7 +5,7 @@
   "main": "tailwind.config.js",
   "scripts": {
     "build": "postcss ./src/style.css -o ./build/css/style.css",
-    "watch": "npx postcss ./src/style.css -o ./build/css/style.css --watch"
+    "watch": "TAILWIND_MODE=watch postcss ./src/style.css -o ./build/css/style.css --watch"
   },
   "keywords": [],
   "author": "",

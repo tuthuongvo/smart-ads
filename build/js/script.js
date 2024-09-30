@@ -56,10 +56,28 @@ $(document).ready(function () {
       $(this).find("button[type='submit']").prop("disabled", !isFormValid);
     });
   }
+  const toggleDropDown = function () {
+    $("#btnFilter").click(function () {
+      $("#dropdownFilter").toggleClass("hidden");
+    });
+    $("#btnColumns").click(function () {
+      $("#dropdownColumns").toggleClass("hidden");
+    });
+    // Enable sortable functionality
+    $("#sortable").sortable({
+      items: "> li",
+      handle: ".drag-icon", // Use the drag-icon class as the handle
+      placeholder: "bg-gray-200 h-8",
+    });
+
+    $("#sortable").disableSelection(); // Prevent text selection while dragging
+  };
+  
 
   // Initialize the showHidePass function
   showHidePass();
   openModal();
+  toggleDropDown();
 
   // Call handle form function for login and 2fa forms
   handleForm("loginForm"); // Form name attribute for login form
