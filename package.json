@@ -4,8 +4,8 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "build": "postcss ./src/style.css -o ./build/css/style.css",
-    "watch": "TAILWIND_MODE=watch postcss ./src/style.css -o ./build/css/style.css --watch"
+    "build": "postcss ./src/style.css -o ./public/css/style.css",
+    "watch": "TAILWIND_MODE=watch postcss ./src/style.css -o ./public/css/style.css --watch"
   },
   "keywords": [],
   "author": "",
