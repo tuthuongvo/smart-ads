@@ -9,10 +9,6 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
-    colors: {
-      blue: "#173C98",
-      white: "#ffffff",
-    },
     extend: {
       borderColor: {
         input: "#E5E7EB",
