@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Draggable Dropdown with Checkboxes</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!-- <link
@@ -16,73 +13,43 @@
     /> -->
   </head>
   <body class="p-5">
-    <div class="flex items-center">
-      <button
-        id="btnFilter"
-        class="flex h-10 justify-center items-center rounded-lg bg-gray-200 px-5 gap-2"
-        type="button"
+    <label
+      for="autoSaver"
+      class="autoSaverSwitch relative inline-flex cursor-pointer select-none items-center"
+    >
+      <input type="checkbox" name="autoSaver" id="autoSaver" class="sr-only" />
+      <span
+        class="slider mr-3 flex h-[26px] w-[50px] items-center rounded-full bg-[#CCCCCE] dark:bg-dark-2 p-1 duration-200"
       >
-        Filter
-      </button>
-
-      <div
-        id="dropdownFilter"
-        class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
+        <span
+          class="dot h-[18px] w-[18px] rounded-full bg-white duration-200"
+        ></span>
+      </span>
+      <span
+        class="label flex items-center text-sm font-medium text-dark dark:text-white"
       >
-        <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-          Category
-        </h6>
-        <ul id="sortable" class="space-y-2 text-sm">
-          <li class="flex items-center border-b border-gray-200">
-            <input id="item1" type="checkbox" class="mr-2" />
-            <label
-              for="item1"
-              class="text-sm font-medium text-gray-900 dark:text-gray-100"
-              >Completed (56)</label
-            >
-          </li>
-          <li class="flex items-center border-b border-gray-200">
-            <input id="item2" type="checkbox" class="mr-2" />
-            <label
-              for="item2"
-              class="text-sm font-medium text-gray-900 dark:text-gray-100"
-              >Cancelled (56)</label
-            >
-          </li>
-          <li class="flex items-center border-b border-gray-200">
-            <input id="item3" type="checkbox" class="mr-2" />
-            <label
-              for="item3"
-              class="text-sm font-medium text-gray-900 dark:text-gray-100"
-              >In Progress (56)</label
-            >
-          </li>
-          <li class="flex items-center border-b border-gray-200">
-            <input id="item4" type="checkbox" class="mr-2" />
-            <label
-              for="item4"
-              class="text-sm font-medium text-gray-900 dark:text-gray-100"
-              >In Review (97)</label
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-
+        Auto Saver <span class="status-text pl-1">Off</span>
+      </span>
+    </label>
     <script>
       $(document).ready(function () {
-        $("#btnFilter").click(function () {
-          $("#dropdownFilter").toggleClass("hidden");
-        });
+        $("#autoSaver").change(function () {
+          if ($(this).is(":checked")) {
+            // Change background to green and update status to "On"
+            $(".slider").removeClass("bg-[#CCCCCE]").addClass("bg-green-500");
+            $(".status-text").text("On");
 
-        // Enable sortable functionality
-        $("#sortable").sortable({
-          items: "> li",
-          handle: "label",
-          placeholder: "bg-gray-200 h-8",
-        });
+            // Move the dot to the right
+            $(".dot").addClass("translate-x-6");
+          } else {
+            // Change background to grey and update status to "Off"
+            $(".slider").removeClass("bg-green-500").addClass("bg-[#CCCCCE]");
+            $(".status-text").addClass("text-[#CCCCCE]").text("Off");
 
-        $("#sortable").disableSelection(); // Prevent text selection while dragging
+            // Move the dot to the left
+            $(".dot").removeClass("translate-x-6");
+          }
+        });
       });
     </script>
   </body>

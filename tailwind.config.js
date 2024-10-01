@@ -13,6 +13,7 @@ module.exports = {
       borderColor: {
         input: "#E5E7EB",
         primary: "#E5E7EB",
+        
       },
       colors: {
         primary: {

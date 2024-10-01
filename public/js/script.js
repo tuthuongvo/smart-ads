@@ -72,12 +72,53 @@ $(document).ready(function () {
 
     $("#sortable").disableSelection(); // Prevent text selection while dragging
   };
-  
+  const toggleSwitch = function () {
+    $(".toggle-checkbox").change(function () {
+      const parentLabel = $(this).closest("label");
+
+      if ($(this).is(":checked")) {
+        // Change background to green and update status to "On"
+        parentLabel
+          .find(".slider")
+          .removeClass("bg-gray-200")
+          .addClass("bg-blue-600");
+        parentLabel
+          .find(".status-text")
+          .text("On")
+          .addClass("text-blue-600")
+          .removeClass("text-gray-500");
+
+        // Move the dot to the right
+        parentLabel.find(".dot").addClass("translate-x-6");
+      } else {
+        // Change background to grey and update status to "Off"
+        parentLabel
+          .find(".slider")
+          .removeClass("bg-blue-600")
+          .addClass("bg-gray-200");
+        parentLabel
+          .find(".status-text")
+          .text("Off")
+          .addClass("text-gray-500")
+          .removeClass("text-blue-600");
+
+        // Move the dot to the left
+        parentLabel.find(".dot").removeClass("translate-x-6");
+      }
+    });
+  };
+  const toggleMenu = function () {
+    $(".bugger-menu").click(function () {
+      $(".sidebar").toggleClass("active");
+    });
+  };
 
   // Initialize the showHidePass function
   showHidePass();
   openModal();
   toggleDropDown();
+  toggleSwitch();
+  toggleMenu();
 
   // Call handle form function for login and 2fa forms
   handleForm("loginForm"); // Form name attribute for login form
