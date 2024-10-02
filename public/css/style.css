@@ -506,8 +506,6 @@ video {
   min-width: 100%;
 }.max-w-\[470px\]{
   max-width: 470px;
-}.max-w-sm{
-  max-width: 24rem;
 }.flex-1{
   flex: 1 1 0%;
 }.translate-x-6{
@@ -545,8 +543,6 @@ video {
   gap: 1.25rem;
 }.gap-6{
   gap: 1.5rem;
-}.gap-8{
-  gap: 2rem;
 }.space-y-3 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1088,10 +1084,10 @@ input[name="password"]{
     width: 320px;
   }.md\:w-\[480px\]{
     width: 480px;
-  }.md\:w-full{
-    width: 100%;
   }.md\:w-auto{
     width: auto;
+  }.md\:w-full{
+    width: 100%;
   }.md\:max-w-sm{
     max-width: 24rem;
   }.md\:flex-nowrap{
