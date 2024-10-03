@@ -1,56 +1,77 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Draggable Dropdown with Checkboxes</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <!-- <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    /> -->
-  </head>
-  <body class="p-5">
-    <label
-      for="autoSaver"
-      class="autoSaverSwitch relative inline-flex cursor-pointer select-none items-center"
-    >
-      <input type="checkbox" name="autoSaver" id="autoSaver" class="sr-only" />
-      <span
-        class="slider mr-3 flex h-[26px] w-[50px] items-center rounded-full bg-[#CCCCCE] dark:bg-dark-2 p-1 duration-200"
-      >
-        <span
-          class="dot h-[18px] w-[18px] rounded-full bg-white duration-200"
-        ></span>
-      </span>
-      <span
-        class="label flex items-center text-sm font-medium text-dark dark:text-white"
-      >
-        Auto Saver <span class="status-text pl-1">Off</span>
-      </span>
-    </label>
-    <script>
-      $(document).ready(function () {
-        $("#autoSaver").change(function () {
-          if ($(this).is(":checked")) {
-            // Change background to green and update status to "On"
-            $(".slider").removeClass("bg-[#CCCCCE]").addClass("bg-green-500");
-            $(".status-text").text("On");
 
-            // Move the dot to the right
-            $(".dot").addClass("translate-x-6");
-          } else {
-            // Change background to grey and update status to "Off"
-            $(".slider").removeClass("bg-green-500").addClass("bg-[#CCCCCE]");
-            $(".status-text").addClass("text-[#CCCCCE]").text("Off");
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Select Country Tags</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
 
-            // Move the dot to the left
-            $(".dot").removeClass("translate-x-6");
-          }
-        });
+<body class="bg-gray-100 p-10">
+
+<select id="country-select" multiple="multiple" placeholder="Choose countries" data-allow-clear="1"
+  class="w-full rounded-lg border border-gray-300 focus:ring focus:ring-blue-500 focus:border-blue-500">
+  <option value="AF">Afghanistan</option>
+  <option value="AL">Albania</option>
+  <option value="DZ">Algeria</option>
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="GB">United Kingdom</option>
+  <option value="AU">Australia</option>
+  <option value="IN">India</option>
+  <option value="JP">Japan</option>
+  <option value="FR">France</option>
+</select>
+
+
+  <script>
+   $(document).ready(function () {
+      $('#country-select').select2({
+        theme: 'bootstrap4',
+        width: 'style',
+        placeholder: $('#country-select').attr('placeholder'),
+        allowClear: Boolean($('#country-select').data('allow-clear')),
+        templateResult: formatState,  // Use custom template for the dropdown options
+        templateSelection: formatSelection  // Customize selected options display
       });
-    </script>
-  </body>
+
+      // Function to format the dropdown options to include a checkbox
+      function formatState(state) {
+        if (!state.id) {
+          return state.text;  // Return the default text for the placeholder
+        }
+
+        // Adding checkbox inside each dropdown item
+        var $state = $(
+          '<span><input type="checkbox" style="margin-right: 8px;" /> ' + state.text + '</span>'
+        );
+        return $state;
+      }
+
+      // Function to handle the selected items (show selected item with the text)
+      function formatSelection(state) {
+        return state.text;
+      }
+
+      // Updating the checkbox state when an option is selected
+      $('#country-select').on('select2:select', function (e) {
+        var selectedOption = e.params.data.element;
+        $(selectedOption).prop('selected', true);  // Mark the option as selected
+      });
+
+      $('#country-select').on('select2:unselect', function (e) {
+        var selectedOption = e.params.data.element;
+        $(selectedOption).prop('selected', false);  // Unmark the option when unselected
+      });
+    });
+
+
+  </script>
+
+</body>
+
 </html>
