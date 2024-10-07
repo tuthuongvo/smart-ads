@@ -64,10 +64,13 @@
   @apply border-2 border-solid border-blue-400;
 }
 .radio-card label h2 {
-  @apply text-gray-900 text-base font-semibold leading-6 mb-2;
+  @apply text-gray-900 text-base text-center font-semibold leading-6 mb-2 w-full;
 }
 .radio-card label p {
-  @apply text-gray-900 text-sm font-normal leading-5;
+  @apply text-gray-900 text-sm font-normal leading-5 w-full;
+}
+.radio-card label p svg {
+  @apply m-auto;
 }
 .radio-card.type1 label > div {
   @apply flex flex-wrap justify-center;
